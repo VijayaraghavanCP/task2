@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <h1>Hello buddy welcome to the home page!!</h1>
+</head>
+<body>
+    <h1>Please enter a UNIQUE DATABASE name to store your details</h1>
+
+    <h2>Then click create to have your private database</h2>
+    <form method="POST" action="/create">
+     <input type="text" name="tablename">
+        <input type="submit" value="create"></form>
+        
+        
+    </form> 
+    <form method="POST" action="/insert">
+        <h4>enter your journey details</h4>
+        <h3>name</h3><input type="text" name="user">
+        <h3>pickup</h3><input type="text" name="pickup">
+        <h3>droppt</h3><input type="text" name="droppt">
+        <input type="submit" value="Insert">
+    </form>
+    <form action="/data" method="POST">
+        <h2>To view your ticket click go</h2>
+        <input type="submit" value="go">
+
+    </form>
+  
+    
+</body>
+
+
+
+</html>
