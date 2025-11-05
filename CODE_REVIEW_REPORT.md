@@ -1,11 +1,13 @@
-# Code Review Report (5 Lines)
+# Code Review Report - Task2 Journey Booking System
 
-1. **Architecture**: Well-structured Node.js application with clear separation of concerns - server logic in app.js, UI in pages/, and templates in views/.
+## Critical Issues Identified (5 Key Points)
 
-2. **Dependencies**: Appropriate technology stack using Express.js, MySQL, EJS, and body-parser for a full-stack web application with database integration.
+1. **Security Vulnerability:** Direct MySQL queries without parameterization expose the application to SQL injection attacks, particularly in user input handling sections.
 
-3. **Security Concerns**: Code likely lacks input validation, SQL injection protection, and error handling mechanisms which are critical for database operations.
+2. **Architecture Concern:** Global variables usage for state management creates potential race conditions and makes the application non-scalable for concurrent users.
 
-4. **Functionality**: Implements core CRUD operations for ticket management with dynamic table creation, data insertion, and retrieval through web interface.
+3. **Database Connection:** Missing connection pooling and proper error handling in MySQL database operations could lead to connection leaks and application crashes.
 
-5. **Improvement Areas**: Missing environment configuration, database connection pooling, authentication, logging, and comprehensive error handling for production readiness.
+4. **Code Organization:** Single-file server architecture (app.js) lacks separation of concerns, making maintenance and testing difficult as the application grows.
+
+5. **Error Handling:** Insufficient error handling throughout the application, particularly in database operations and form processing, reduces application reliability and user experience.
