@@ -1,15 +1,16 @@
-# Task2 - Journey Booking Management System Documentation
+# Application Documentation Report
 
-## Project Overview
-Task2 is a Node.js web application designed for journey/booking management with a simple form-based interface for ticket booking and display functionality.
+## Core Functionality Analysis
+This Express.js application implements a simple journey booking system with dynamic database table management, allowing users to create custom tables, store journey details (passenger name, pickup/dropoff locations), and view booking confirmations through a web interface.
 
-## Architecture & Component Analysis
-**Framework Stack:** Express.js + EJS templating + MySQL database integration
-**Structure Pattern:** Simple MVC-like architecture with direct database coupling and global state management through application variables.
+## Business Logic Overview
+The application follows a linear workflow: users access the home endpoint, create a uniquely named database table, input journey information via forms, and retrieve their booking details as a "ticket" - essentially functioning as a basic travel booking prototype.
 
-## Key Components & Data Flow
-1. **app.js (Main Server)** → Handles routing, database operations, and form processing with global variables for state persistence
-2. **Frontend Layer** → Static HTML forms (homepage.html) collect user input which flows through Express middleware to MySQL database operations and EJS template rendering (datapage.ejs)
+## User Experience Flow
+Users interact through a straightforward web interface starting at /home, where they create database tables, fill forms with journey details, and view confirmation tickets, though the UX lacks error handling and validation feedback mechanisms.
 
-## Dependencies & Configuration
-Core dependencies include Express.js 4.18.1 for web framework, MySQL 2.18.1 for database connectivity, EJS 3.1.8 for server-side templating, and body-parser 1.20.0 for form data processing with nodemon for development workflow.
+## Technical Architecture
+Built on Express.js with MySQL integration, the app uses EJS templating, operates on port 3000, connects to a local database 'task2', and employs global variables for state management across HTTP requests.
+
+## Key Implementation Characteristics
+The system uses dynamic SQL table creation, direct query execution without ORM, hardcoded database credentials, and relies on global state rather than session management, indicating a prototype-level implementation focused on core functionality demonstration.
