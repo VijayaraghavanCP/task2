@@ -1,13 +1,16 @@
-# Code Review Report - Task2 Journey Booking System
+# Code Review Report
 
-## Critical Issues Identified (5 Key Points)
+## Critical Security Issues
+**SQL Injection Vulnerability**: Direct string concatenation in SQL queries (lines creating tables and inserting data) creates severe security risks - use parameterized queries or ORM to prevent malicious code execution through user inputs.
 
-1. **Security Vulnerability:** Direct MySQL queries without parameterization expose the application to SQL injection attacks, particularly in user input handling sections.
+## Architecture & Design Concerns
+**Global State Management**: Using global variables (tablename, obj) for request state violates stateless principles and causes race conditions in concurrent requests - implement proper session management or request-scoped variables instead.
 
-2. **Architecture Concern:** Global variables usage for state management creates potential race conditions and makes the application non-scalable for concurrent users.
+## Error Handling & Reliability
+**Missing Error Handling**: No try-catch blocks, database connection error handling, or user input validation leads to application crashes and poor user experience - add comprehensive error handling and input sanitization.
 
-3. **Database Connection:** Missing connection pooling and proper error handling in MySQL database operations could lead to connection leaks and application crashes.
+## Security & Configuration Issues
+**Hardcoded Credentials**: Database credentials exposed in source code (root/password) pose significant security risks - use environment variables or secure configuration management for production deployments.
 
-4. **Code Organization:** Single-file server architecture (app.js) lacks separation of concerns, making maintenance and testing difficult as the application grows.
-
-5. **Error Handling:** Insufficient error handling throughout the application, particularly in database operations and form processing, reduces application reliability and user experience.
+## Code Quality & Maintainability
+**Code Structure**: Mixing business logic with routing, lack of separation of concerns, and no modular design makes the codebase difficult to maintain, test, and scale - refactor into proper MVC architecture with separate service layers.
