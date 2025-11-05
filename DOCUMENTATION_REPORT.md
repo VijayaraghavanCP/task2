@@ -1,49 +1,15 @@
-# Project Documentation Report
+# Task2 - Journey Booking Management System Documentation
 
-## 1. Project Overview and Purpose
-This is a Node.js web application designed as a ticket management system that allows users to create database tables, insert ticket data, and view stored information through a web interface. The application serves as a basic CRUD (Create, Read, Update, Delete) system for managing tickets with MySQL database integration.
+## Project Overview
+Task2 is a Node.js web application designed for journey/booking management with a simple form-based interface for ticket booking and display functionality.
 
-## 2. Technology Stack and Dependencies
-- **Backend**: Node.js with Express.js framework
-- **Database**: MySQL for data persistence
-- **Template Engine**: EJS (Embedded JavaScript) for server-side rendering
-- **HTTP Parsing**: body-parser middleware for handling form data
-- **Frontend**: HTML with embedded forms and basic styling
+## Architecture & Component Analysis
+**Framework Stack:** Express.js + EJS templating + MySQL database integration
+**Structure Pattern:** Simple MVC-like architecture with direct database coupling and global state management through application variables.
 
-## 3. Architecture and File Structure
-```
-task2/
-├── app.js                 # Main server application file
-├── package.json           # Project dependencies and metadata
-├── pages/
-│   └── homepage.html      # Main user interface
-└── views/
-    └── datapage.ejs       # Ticket display template
-```
+## Key Components & Data Flow
+1. **app.js (Main Server)** → Handles routing, database operations, and form processing with global variables for state persistence
+2. **Frontend Layer** → Static HTML forms (homepage.html) collect user input which flows through Express middleware to MySQL database operations and EJS template rendering (datapage.ejs)
 
-## 4. Key Components and Their Functionality
-- **app.js**: Central server file handling HTTP requests, database connections, and routing logic
-- **homepage.html**: Primary user interface containing forms for table creation, data insertion, and viewing operations
-- **datapage.ejs**: Dynamic template for displaying ticket information retrieved from the database
-- **package.json**: Defines project metadata and manages dependencies (express, mysql, ejs, body-parser)
-
-## 5. Database Schema and Operations
-The application implements MySQL database operations including:
-- Dynamic table creation functionality
-- Data insertion capabilities for ticket management
-- Data retrieval and display operations
-- Connection management between Node.js application and MySQL database
-
-## 6. Frontend Structure and User Flow
-Users interact through homepage.html which provides:
-- Form interfaces for creating new database tables
-- Input forms for adding ticket data to existing tables
-- Options to view and display stored ticket information
-- Navigation to datapage.ejs for detailed ticket viewing
-
-## 7. API Endpoints and Routing
-The Express.js server manages routing for:
-- Static file serving for homepage.html
-- POST endpoints for table creation and data insertion
-- GET endpoints for data retrieval and template rendering
-- EJS template rendering for dynamic content display on datapage.ejs
+## Dependencies & Configuration
+Core dependencies include Express.js 4.18.1 for web framework, MySQL 2.18.1 for database connectivity, EJS 3.1.8 for server-side templating, and body-parser 1.20.0 for form data processing with nodemon for development workflow.
